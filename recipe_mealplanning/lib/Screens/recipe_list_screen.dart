@@ -22,11 +22,6 @@ class RecipeListScreen extends StatelessWidget {
           return RecipeCard(recipe: recipe);
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        tooltip: 'Add Recipe',
-        child: const Icon(Icons.add),
-      ),
     );
   }
 }
