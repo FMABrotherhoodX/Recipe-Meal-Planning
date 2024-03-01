@@ -10,7 +10,7 @@ class RecipeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        title: Text(recipe.title),
+        title: Text(recipe.name),
       ),
     );
   }
