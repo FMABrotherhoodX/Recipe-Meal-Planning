@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'recipe_list_screen.dart';
-import 'Favorite_Screen.dart';
-import 'MealPlan.dart';
-import 'ShoppingListScreen.dart';
+import 'favorite_screen.dart';
+import 'meal_plan.dart';
+import 'shopping_list_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
