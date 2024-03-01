@@ -3,9 +3,12 @@ import 'package:provider/provider.dart';
 import 'Screens/home_screen.dart';
 import 'recipe_provider.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(
+      ChangeNotifierProvider(
+        create: (context) => RecipeProvider(),
+        child: MyApp(),
+      ),
+    );
 
 class MyApp extends StatelessWidget {
   @override

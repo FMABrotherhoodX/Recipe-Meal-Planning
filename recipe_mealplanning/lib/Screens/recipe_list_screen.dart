@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:recipe_mealplanning/Screens/add_recipe_screen.dart';
 import '../recipe_model.dart';
 import '../recipe_provider.dart';
 import '../recipe_card.dart';
@@ -9,7 +10,8 @@ class RecipeListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Recipe> recipes = Provider.of<RecipeProvider>(context).recipes;
+    List<Recipe> recipes = Provider.of<RecipeProvider>(context)
+        .recipes; // This listens for changes
 
     return Scaffold(
       appBar: AppBar(
@@ -21,6 +23,13 @@ class RecipeListScreen extends StatelessWidget {
           final recipe = recipes[index];
           return RecipeCard(recipe: recipe);
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => AddRecipeScreen()),
+        ),
+        child: Icon(Icons.add),
+        tooltip: 'Add Recipe',
       ),
     );
   }
