@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'recipe_model.dart';
-import 'recipe_provider.dart';
-import 'recipe_card.dart';
+import '../recipe_model.dart';
+import '../recipe_provider.dart';
+import '../recipe_card.dart';
 
 class RecipeListScreen extends StatelessWidget {
   const RecipeListScreen({super.key});
