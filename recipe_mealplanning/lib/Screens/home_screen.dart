@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            const RecipeListScreen(),
+            RecipeListScreen(),
             FavoriteScreen(),
             MealPlanScreen(),
             ShoppingListScreen(),

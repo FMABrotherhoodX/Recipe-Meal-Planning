@@ -1,9 +1,10 @@
 class Recipe {
-  final String id;
-  final String name;
-  final String description;
-  final List<String> ingredients;
-  final String imagePath;
+  String id;
+  String name;
+  String description;
+  List<String> ingredients;
+  String imagePath;
+  bool isFavorite;
 
   Recipe({
     required this.id,
@@ -11,5 +12,6 @@ class Recipe {
     required this.description,
     required this.ingredients,
     required this.imagePath,
+    this.isFavorite = false,
   });
 }
