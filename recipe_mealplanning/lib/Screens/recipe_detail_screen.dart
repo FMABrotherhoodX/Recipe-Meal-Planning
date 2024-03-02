@@ -26,18 +26,16 @@ class RecipeDetailScreen extends StatelessWidget {
             TextButton(
               child: const Text('Cancel'),
               onPressed: () {
-                Navigator.of(context).pop(); // Close the dialog
+                Navigator.of(context).pop();
               },
             ),
             TextButton(
               child: const Text('Delete'),
               onPressed: () {
-                // Call the delete function from your provider here
                 Provider.of<RecipeProvider>(context, listen: false)
                     .deleteRecipe(recipe.id);
-                Navigator.of(context).pop(); // Close the dialog
-                Navigator.of(context)
-                    .pop(); // Go back to the previous screen, recipe list screen
+                Navigator.of(context).pop();
+                Navigator.of(context).pop();
               },
             ),
           ],

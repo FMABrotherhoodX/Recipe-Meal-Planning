@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'recipe_model.dart'; // Ensure this import matches the location of your Recipe model
+import 'recipe_model.dart'; // Make sure this import path is correct for your project structure
 
 class RecipeProvider with ChangeNotifier {
   List<Recipe> _recipes = [];
 
   List<Recipe> get recipes => [..._recipes];
+
   List<Recipe> get favoriteRecipes =>
       _recipes.where((recipe) => recipe.isFavorite).toList();
 
