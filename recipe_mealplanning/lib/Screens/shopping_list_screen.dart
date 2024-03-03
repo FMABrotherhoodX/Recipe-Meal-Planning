@@ -8,20 +8,26 @@ class ShoppingListScreen extends StatefulWidget {
 
 class _ShoppingListScreenState extends State<ShoppingListScreen> {
   final List<ShoppingListItem> _items = [];
-  final TextEditingController _controller = TextEditingController();
+  final TextEditingController _textController = TextEditingController();
 
   void _addItem() {
-    if (_controller.text.isNotEmpty) {
+    if (_textController.text.isNotEmpty) {
       setState(() {
-        _items.add(ShoppingListItem(name: _controller.text));
-        _controller.clear();
+        _items.add(ShoppingListItem(name: _textController.text));
+        _textController.clear();
       });
     }
   }
 
-  void _toggleItemChecked(int index) {
+  void _toggleItemCheck(int index) {
     setState(() {
       _items[index].isChecked = !_items[index].isChecked;
+    });
+  }
+
+  void _deleteItem(int index) {
+    setState(() {
+      _items.removeAt(index);
     });
   }
 
@@ -29,16 +35,16 @@ class _ShoppingListScreenState extends State<ShoppingListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Shopping List"),
+        title: Text('Shopping List'),
       ),
       body: Column(
         children: [
           Padding(
             padding: EdgeInsets.all(8.0),
             child: TextField(
-              controller: _controller,
+              controller: _textController,
               decoration: InputDecoration(
-                labelText: 'Add item',
+                labelText: 'Add Item',
                 suffixIcon: IconButton(
                   icon: Icon(Icons.add),
                   onPressed: _addItem,
@@ -51,11 +57,16 @@ class _ShoppingListScreenState extends State<ShoppingListScreen> {
             child: ListView.builder(
               itemCount: _items.length,
               itemBuilder: (context, index) {
-                final item = _items[index];
-                return CheckboxListTile(
-                  title: Text(item.name),
-                  value: item.isChecked,
-                  onChanged: (_) => _toggleItemChecked(index),
+                return ListTile(
+                  leading: Checkbox(
+                    value: _items[index].isChecked,
+                    onChanged: (_) => _toggleItemCheck(index),
+                  ),
+                  title: Text(_items[index].name),
+                  trailing: IconButton(
+                    icon: Icon(Icons.delete),
+                    onPressed: () => _deleteItem(index),
+                  ),
                 );
               },
             ),
@@ -63,11 +74,5 @@ class _ShoppingListScreenState extends State<ShoppingListScreen> {
         ],
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
   }
 }
