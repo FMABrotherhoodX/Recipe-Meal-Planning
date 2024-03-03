@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe_mealplanning/Screens/recipe_detail_screen.dart';
-import 'recipe_provider.dart'; // Adjust the import path as necessary
-import 'recipe_model.dart'; // Adjust the import path as necessary
+import 'recipe_provider.dart';
+import 'recipe_model.dart';
 
 class SelectRecipeScreen extends StatelessWidget {
   @override

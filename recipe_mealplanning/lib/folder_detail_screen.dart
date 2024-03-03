@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:recipe_mealplanning/Screens/recipe_detail_screen.dart';
 import 'recipe_provider.dart';
 import 'select_recipe_screen.dart';
 import 'recipe_model.dart';
@@ -38,6 +39,11 @@ class FolderDetailScreen extends StatelessWidget {
               icon: Icon(Icons.delete),
               onPressed: () =>
                   provider.removeRecipeFromFolder(folder.id, recipe.id),
+            ),
+            onLongPress: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => RecipeDetailScreen(recipe: recipe),
+              ),
             ),
           );
         },
