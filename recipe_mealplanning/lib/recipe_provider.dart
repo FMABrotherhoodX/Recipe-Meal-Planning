@@ -4,6 +4,10 @@ import 'recipe_model.dart'; // Make sure this import path is correct for your pr
 class RecipeProvider with ChangeNotifier {
   List<Recipe> _recipes = [];
 
+  RecipeProvider() {
+    _addPreExisitingRecipes();
+  }
+
   List<Recipe> get recipes => [..._recipes];
 
   List<Recipe> get favoriteRecipes =>
@@ -25,5 +29,27 @@ class RecipeProvider with ChangeNotifier {
       _recipes[index].isFavorite = !_recipes[index].isFavorite;
       notifyListeners();
     }
+  }
+
+  void _addPreExistingRecipes() {
+    _recipes.addAll([
+      Recipe(
+        id: '1',
+        name: 'Pizza',
+        description: 'Simple, Fasy, and Easy',
+        ingredients: ['Tomato Sauce', 'Garlic', 'Dough', 'Parmesan Cheese'],
+        imagePath: 'Assest/Pizza.jpg',
+        isFavorite: false,
+      ),
+      Recipe(
+        id: '2',
+        name: 'Classic Tomato Soup',
+        description: 'Warm and comforting tomato soup.',
+        ingredients: ['Tomatoes', 'Onion', 'Garlic', 'Basil', 'Cream'],
+        imagePath: 'assets/images/tomato_soup.jpg',
+        isFavorite: false,
+      ),
+    ]);
+    notifyListeners();
   }
 }
