@@ -5,7 +5,7 @@ class RecipeProvider with ChangeNotifier {
   List<Recipe> _recipes = [];
 
   RecipeProvider() {
-    _addPreExisitingRecipes();
+    _addPreExistingRecipes();
   }
 
   List<Recipe> get recipes => [..._recipes];
