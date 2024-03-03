@@ -38,7 +38,7 @@ class RecipeProvider with ChangeNotifier {
         name: 'Pizza',
         description: 'Simple, Fasy, and Easy',
         ingredients: ['Tomato Sauce', 'Garlic', 'Dough', 'Parmesan Cheese'],
-        imagePath: 'Assest/Pizza.jpg',
+        imagePath: 'Assets/Pizza.jpg',
         isFavorite: false,
       ),
       Recipe(
@@ -46,7 +46,7 @@ class RecipeProvider with ChangeNotifier {
         name: 'Classic Tomato Soup',
         description: 'Warm and comforting tomato soup.',
         ingredients: ['Tomatoes', 'Onion', 'Garlic', 'Basil', 'Cream'],
-        imagePath: 'assets/images/tomato_soup.jpg',
+        imagePath: 'Assets/tomato_soup.jpg',
         isFavorite: false,
       ),
     ]);

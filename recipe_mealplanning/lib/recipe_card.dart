@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'recipe_model.dart';
 
-// Assuming RecipeCard is a StatelessWidget that takes a Recipe object
 class RecipeCard extends StatelessWidget {
   final Recipe recipe;
-  final VoidCallback onFavoriteToggle; // Callback for toggling favorite
+  final VoidCallback onFavoriteToggle;
 
   const RecipeCard(
       {Key? key, required this.recipe, required this.onFavoriteToggle})
@@ -13,15 +12,20 @@ class RecipeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: ListTile(
-        title: Text(recipe.name),
-        trailing: IconButton(
-          icon:
-              Icon(recipe.isFavorite ? Icons.favorite : Icons.favorite_border),
-          color: recipe.isFavorite ? Colors.red : null,
-          onPressed: onFavoriteToggle, // Use the provided callback here
-        ),
-        // Include other details like subtitle or leading widget as per your design
+      child: Column(
+        children: [
+          ListTile(
+            title: Text(recipe.name),
+            subtitle: Text(recipe.description),
+          ),
+          if (recipe.imagePath.isNotEmpty)
+            Image.asset(
+              recipe.imagePath,
+              width: 100,
+              height: 100,
+              fit: BoxFit.cover,
+            ),
+        ],
       ),
     );
   }
