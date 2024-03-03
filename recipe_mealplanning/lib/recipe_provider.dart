@@ -3,15 +3,16 @@ import 'recipe_model.dart'; // Make sure this import path is correct for your pr
 
 class RecipeProvider with ChangeNotifier {
   List<Recipe> _recipes = [];
+  List<MealPlanFolder> _folders = [];
+  List<Recipe> get favoriteRecipes =>
+      _recipes.where((recipe) => recipe.isFavorite).toList();
 
   RecipeProvider() {
     _addPreExistingRecipes();
   }
 
   List<Recipe> get recipes => [..._recipes];
-
-  List<Recipe> get favoriteRecipes =>
-      _recipes.where((recipe) => recipe.isFavorite).toList();
+  List<MealPlanFolder> get folders => [..._folders];
 
   void addRecipe(Recipe recipe) {
     _recipes.add(recipe);
@@ -51,5 +52,35 @@ class RecipeProvider with ChangeNotifier {
       ),
     ]);
     notifyListeners();
+  }
+
+  void addFolder(String folderName) {
+    final newFolder = MealPlanFolder(
+        id: DateTime.now().toString(), name: folderName, recipes: []);
+    _folders.add(newFolder);
+    notifyListeners();
+  }
+
+  void deleteFolder(String folderId) {
+    _folders.removeWhere((folder) => folder.id == folderId);
+    notifyListeners();
+  }
+
+  void addRecipeToFolder(String folderId, Recipe recipe) {
+    final folderIndex = _folders.indexWhere((folder) => folder.id == folderId);
+    if (folderIndex != -1) {
+      _folders[folderIndex].recipes.add(recipe);
+      notifyListeners();
+    }
+  }
+
+  void removeRecipeFromFolder(String folderId, String recipeId) {
+    final folderIndex = _folders.indexWhere((folder) => folder.id == folderId);
+    if (folderIndex != -1) {
+      _folders[folderIndex]
+          .recipes
+          .removeWhere((recipe) => recipe.id == recipeId);
+      notifyListeners();
+    }
   }
 }

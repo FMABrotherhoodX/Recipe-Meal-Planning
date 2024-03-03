@@ -15,3 +15,15 @@ class Recipe {
     this.isFavorite = false,
   });
 }
+
+class MealPlanFolder {
+  String id;
+  String name;
+  List<Recipe> recipes;
+
+  MealPlanFolder({
+    required this.id,
+    required this.name,
+    required this.recipes,
+  });
+}
