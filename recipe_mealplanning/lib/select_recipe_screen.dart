@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:recipe_mealplanning/Screens/recipe_detail_screen.dart';
 import 'recipe_provider.dart'; // Adjust the import path as necessary
 import 'recipe_model.dart'; // Adjust the import path as necessary
 
@@ -19,6 +20,11 @@ class SelectRecipeScreen extends StatelessWidget {
           return ListTile(
             title: Text(recipe.name),
             onTap: () => Navigator.pop(context, recipe),
+            onLongPress: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => RecipeDetailScreen(recipe: recipe),
+              ),
+            ),
           );
         },
       ),
