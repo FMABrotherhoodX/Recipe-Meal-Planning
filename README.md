@@ -12,5 +12,6 @@ https://docs.google.com/document/d/1-KTusuKEU5p4uwBX8halPn9sy6I_Yzhf-XTjj15A_I8/
 This Recipe and Meal Planning app is the result of collaborative effort. The following individuals contributed to the development of this project:
 
 [@jcaviness1](https://github.com/jcaviness1)(Jayda C.)
+
 [@FMABrotherhoodX](https://github.com/FMABrotherhoodX)(MohammedAaquib H.)
 
